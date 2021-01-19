@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1080020804111",
+    "firebase_url": "https://siswa-guru-default-rtdb.firebaseio.com",
+    "project_id": "siswa-guru",
+    "storage_bucket": "siswa-guru.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1080020804111:android:0670b44d3f19be0bab397a",
+        "android_client_info": {
+          "package_name": "com.example.oop_progres"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1080020804111-b29c5jds0f6stejbrhbo99mhofb4ttb6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.oop_progres",
+            "certificate_hash": "813667af1aa6bbd8a393d8e198ce12a3bd3cbeb8"
+          }
+        },
+        {
+          "client_id": "1080020804111-4app79b8bhk5ipp5aju66g7995c2mdof.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGkn-gFLZ-Wl0_1VGnZiNcc2Isl7LRyqg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1080020804111-4app79b8bhk5ipp5aju66g7995c2mdof.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

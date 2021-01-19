@@ -13,7 +13,6 @@ import androidx.navigation.fragment.navArgs
 import com.example.oop_progres.R
 import com.example.oop_progres.model.Siswa
 import com.example.oop_progres.modelview.SiswaModelView
-import kotlinx.android.synthetic.main.fragment_update_guru.view.*
 import kotlinx.android.synthetic.main.fragment_update_siswa.*
 import kotlinx.android.synthetic.main.fragment_update_siswa.view.*
 
@@ -33,6 +32,7 @@ class UpdateSiswa : Fragment() {
 
         view.update_nama_siswa.setText(args1.currentSiswa.nama)
         view.update_alamat.setText(args1.currentSiswa.alamat)
+        view.update_nim.setText(args1.currentSiswa.nim.toString())
 
         view.btn_ubah1.setOnClickListener {
             updateSiswa()
@@ -43,12 +43,13 @@ class UpdateSiswa : Fragment() {
     }
 
     private fun updateSiswa() {
+        val nim = update_nim.text
         val nama = update_nama_siswa.text.toString()
         val alamat = update_alamat.text.toString()
 
-        if (inputCheck1(nama, alamat)) {
+        if (inputCheck1(nim, nama, alamat)) {
 
-            val updateSiswa = Siswa(args1.currentSiswa.id, nama, alamat)
+            val updateSiswa = Siswa(args1.currentSiswa.id,Integer.parseInt(nim.toString()),nama, alamat)
             mSiswaModelView.updateSiswa(updateSiswa)
             Toast.makeText(requireContext(), "Berhasil Mengubah Data!!!", Toast.LENGTH_SHORT).show()
             findNavController().navigate(R.id.action_updateSiswa_to_list_Siswa)
@@ -58,8 +59,8 @@ class UpdateSiswa : Fragment() {
 
     }
 
-    private fun inputCheck1(nama: String, alamat: String): Boolean {
-        return !(TextUtils.isEmpty(nama) && TextUtils.isEmpty(alamat))
+    private fun inputCheck1(nim:Editable,nama: String, alamat: String): Boolean {
+        return !(TextUtils.isEmpty(nama) && TextUtils.isEmpty(alamat) && nim.isEmpty())
     }
 
     override fun onCreateOptionsMenu(menu1: Menu, inflater: MenuInflater) {

@@ -1,6 +1,7 @@
 package com.example.oop_progres.fragments.siswa_fragment
 
 import android.os.Bundle
+import android.text.Editable
 import android.text.TextUtils
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -27,17 +28,19 @@ class AddSiswa : Fragment() {
         val view = inflater.inflate(R.layout.fragment_add_siswa, container, false)
         mSiswaModelView = ViewModelProvider(this).get(SiswaModelView::class.java)
 
+
         view.btn_add_siswa.setOnClickListener {
             insertDatabaseSiswa()
+
         }
         return view
     }
     private fun insertDatabaseSiswa(){
+        val nim = txt_nim.text
         val nama = txt_nama_siswa.text.toString()
         val alamat = txt_alamat.text.toString()
-
-        if(inputCheckSiswa(nama,alamat)){
-            val siswa = Siswa(0, nama, alamat)
+        val siswa = Siswa(0, Integer.parseInt(nim.toString()), nama, alamat)
+        if(inputCheckSiswa(nim,nama,alamat)){
             mSiswaModelView.addSiswa(siswa)
             Toast.makeText(requireContext(), "Berhasil Menambahkan Data!", Toast.LENGTH_SHORT).show()
             findNavController().navigate(R.id.action_addSiswa_to_list_Siswa)
@@ -46,9 +49,8 @@ class AddSiswa : Fragment() {
         }
 
     }
-    private fun inputCheckSiswa(nama:String, alamat:String):Boolean{
-        return !(TextUtils.isEmpty(nama) && TextUtils.isEmpty(alamat))
+    private fun inputCheckSiswa(nim: Editable, nama:String, alamat:String):Boolean{
+        return !(TextUtils.isEmpty(nama) && TextUtils.isEmpty(alamat) && nim.isEmpty())
 
     }
-
 }

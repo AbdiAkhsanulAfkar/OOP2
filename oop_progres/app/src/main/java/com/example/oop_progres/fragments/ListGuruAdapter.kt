@@ -10,6 +10,7 @@ import com.example.oop_progres.R
 import com.example.oop_progres.fragments.guru_fragment.ListDirections
 import com.example.oop_progres.model.Guru
 import kotlinx.android.synthetic.main.custom_row.view.*
+import kotlinx.android.synthetic.main.customrow_siswa.view.*
 import kotlin.collections.List
 
 class ListGuruAdapter: RecyclerView.Adapter<ListGuruAdapter.GuruViewHolder>() {
@@ -41,6 +42,7 @@ class ListGuruAdapter: RecyclerView.Adapter<ListGuruAdapter.GuruViewHolder>() {
             val action = ListDirections.actionList2ToUpdateGuru(currentItem)
             holder.itemView.findNavController().navigate(action)
         }
+
     }
     fun setData(guru: List<Guru>){
         this.guruList = guru
